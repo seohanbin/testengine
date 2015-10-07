@@ -1,2 +1,123 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!-- Main Container starts -->
+<div class="main-container">
+
+	<!-- Container fluid Starts -->
+	<div class="container-fluid">
+
+		<!-- Spacer starts -->
+		<div class="spacer">
+
+			<!-- Row Starts -->
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="blog">
+
+
+						<div class="blog-header">
+							<h5 class="blog-title">current location__</h5>
+						</div></div><!--blog header-->
+
+						<div class="blog-body">
+							<form name="locationForm" method="post" class="bv-form" action="/home/result/">
+								<div class="form-group has-feedback">
+									<div class="row">
+										<div class="col-md-8">
+											<label class="control-label">nickname</label>
+											<input type="text" class="form-control" name="title" data-bv-field="title"><i class="form-control-feedback" data-bv-icon-for="title" style="display: none;"></i>
+										<small class="help-block" data-bv-validator="notEmpty" data-bv-for="title" data-bv-result="NOT_VALIDATED" style="display: none;">The title is required</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="title" data-bv-result="NOT_VALIDATED" style="display: none;">The nickname must be less than 200 characters long</small></div>
+										<div class="col-md-4 selectContainer">
+											<label class="control-label">인원수</label>
+											<select class="form-control" name="genre" data-bv-field="genre">
+												<option value="comedy">1명</option>
+												<option value="action">2명</option>
+												<option value="horror">3명</option>
+											</select><i class="form-control-feedback" data-bv-icon-for="genre" style="display: none;"></i>
+											<small class="help-block" data-bv-validator="notEmpty" data-bv-for="genre" data-bv-result="NOT_VALIDATED" style="display: none;">The genre is required</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback">
+									<div class="row">
+										<div class="col-md-12">
+											<label class="control-label">Description</label>
+											<input type="text" class="form-control" name="director" data-bv-field="director"><i class="form-control-feedback" data-bv-icon-for="director" style="display: none;"></i>
+										<small class="help-block" data-bv-validator="notEmpty" data-bv-for="director" data-bv-result="NOT_VALIDATED" style="display: none;">The director name is required</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="director" data-bv-result="NOT_VALIDATED" style="display: none;">The director name must be less than 80 characters long</small></div>
+									</div>
+								</div>
+								<!--
+
+
+
+
+								<div class="form-group has-feedback">
+									<div class="row">
+										<div class="col-md-6">
+											<label class="control-label">Website Url</label>
+											<input type="text" class="form-control" name="website" data-bv-field="website"><i class="form-control-feedback" data-bv-icon-for="website" style="display: none;"></i>
+										<small class="help-block" data-bv-validator="notEmpty" data-bv-for="website" data-bv-result="NOT_VALIDATED" style="display: none;">The website address is required</small><small class="help-block" data-bv-validator="uri" data-bv-for="website" data-bv-result="NOT_VALIDATED" style="display: none;">The website address is not valid</small></div>
+										<div class="col-md-6">
+											<label class="control-label">Youtube trailer</label>
+											<input type="text" class="form-control" name="trailer" data-bv-field="trailer"><i class="form-control-feedback" data-bv-icon-for="trailer" style="display: none;"></i>
+										<small class="help-block" data-bv-validator="notEmpty" data-bv-for="trailer" data-bv-result="NOT_VALIDATED" style="display: none;">The trailer link is required</small><small class="help-block" data-bv-validator="uri" data-bv-for="trailer" data-bv-result="NOT_VALIDATED" style="display: none;">The trailer link is not valid</small></div>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback">
+									<label class="control-label">Description</label>
+									<textarea class="form-control" name="review" rows="5" data-bv-field="review"></textarea><i class="form-control-feedback" data-bv-icon-for="review" style="display: none;"></i>
+								<small class="help-block" data-bv-validator="stringLength" data-bv-for="review" data-bv-result="NOT_VALIDATED" style="display: none;">The review must be less than 500 characters long</small></div>
+								-->
+
+
+
+								<div class="form-group has-feedback">
+									<label class="control-label">출발지</label>
+									<div>
+										<label class="radio-inline">
+											<input type="radio" name="rating" value="terrible" data-bv-field="rating">익산터미널
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="rating" value="watchable" data-bv-field="rating">익산역
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="rating" value="best" data-bv-field="rating"><i class="form-control-feedback" data-bv-icon-for="rating" style="display: none;"></i>익산터미널
+										</label>
+									</div>
+								<small class="help-block" data-bv-validator="notEmpty" data-bv-for="rating" data-bv-result="NOT_VALIDATED" style="display: none;">The starting point is required</small>
+								</div>
+
+								<div class="form-group has-feedback">
+									<label class="control-label">도착지</label><!--출발지와 네임이 같으면 출발지와 한묶음 라디오버튼 되버림-->
+									<div>
+										<label class="radio-inline">
+											<input type="radio" name="rating2" value="terrible" data-bv-field="rating">익산터미널
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="rating2" value="watchable" data-bv-field="rating">익산역
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="rating2" value="best" data-bv-field="rating"><i class="form-control-feedback" data-bv-icon-for="rating" style="display: none;"></i>익산터미널
+										</label>
+									</div>
+								<small class="help-block" data-bv-validator="notEmpty" data-bv-for="rating" data-bv-result="NOT_VALIDATED" style="display: none;">The arriving point is required</small>
+								</div>
+
+
+								<div class="col-lg-6 col-lg-offset-6">
+									<div class="checkbox">
+										<input type="checkbox" name="acceptTerms" data-bv-field="acceptTerms"><i class="form-control-feedback fa fa-check" data-bv-icon-for="acceptTerms" style="top: 0px; display: block;"></i> Accept the terms and policies
+									</div>
+								</div>
+								<button type="submit" class="btn btn-default">Validate</button>
+							</form>
+						</div><!--blog body-->
+
+					</div><!-- class blog-->
+				</div><!--class col md 12-->
+			</div><!--div row-->
+
+		</div><!--class spacer-->
+
+	</div><!--class container fluid-->
+</div><!--main container-->
