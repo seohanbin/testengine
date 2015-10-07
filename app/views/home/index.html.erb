@@ -14,20 +14,20 @@
 
 
 						<div class="blog-header">
-							<h5 class="blog-title">current location__</h5>
+							<h5 class="blog-title">current location</h5>
 						</div></div><!--blog header-->
 
 						<div class="blog-body">
-							<form name="locationForm" method="post" class="bv-form" action="/home/result/">
+							<form name="locationForm" method="post" class="bv-form" action="/home/selecttime/">
 								<div class="form-group has-feedback">
 									<div class="row">
 										<div class="col-md-8">
 											<label class="control-label">nickname</label>
-											<input type="text" class="form-control" name="title" data-bv-field="title"><i class="form-control-feedback" data-bv-icon-for="title" style="display: none;"></i>
+											<input type="text" class="form-control" name="nickname" data-bv-field="title"><i class="form-control-feedback" data-bv-icon-for="title" style="display: none;"></i>
 										<small class="help-block" data-bv-validator="notEmpty" data-bv-for="title" data-bv-result="NOT_VALIDATED" style="display: none;">The title is required</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="title" data-bv-result="NOT_VALIDATED" style="display: none;">The nickname must be less than 200 characters long</small></div>
 										<div class="col-md-4 selectContainer">
 											<label class="control-label">인원수</label>
-											<select class="form-control" name="genre" data-bv-field="genre">
+											<select class="form-control" name="numofperson" data-bv-field="genre">
 												<option value="comedy">1명</option>
 												<option value="action">2명</option>
 												<option value="horror">3명</option>
@@ -40,8 +40,8 @@
 								<div class="form-group has-feedback">
 									<div class="row">
 										<div class="col-md-12">
-											<label class="control-label">Description</label>
-											<input type="text" class="form-control" name="director" data-bv-field="director"><i class="form-control-feedback" data-bv-icon-for="director" style="display: none;"></i>
+											<label class="control-label">Describe exact location</label>
+											<input type="text" class="form-control" name="exactlocation" data-bv-field="director"><i class="form-control-feedback" data-bv-icon-for="director" style="display: none;"></i>
 										<small class="help-block" data-bv-validator="notEmpty" data-bv-for="director" data-bv-result="NOT_VALIDATED" style="display: none;">The director name is required</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="director" data-bv-result="NOT_VALIDATED" style="display: none;">The director name must be less than 80 characters long</small></div>
 									</div>
 								</div>
@@ -69,35 +69,52 @@
 								<small class="help-block" data-bv-validator="stringLength" data-bv-for="review" data-bv-result="NOT_VALIDATED" style="display: none;">The review must be less than 500 characters long</small></div>
 								-->
 
+								<% unless @error_print.nil? %>
+								<div class="col-lg-12 col-md-12 col-sx-12 col-sm-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="demo-btn-group">
+												<div class="alert alert-warning">
+													<!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
+													<strong>Warning!</strong> <%= @error_print %>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<% end %>
+
+
+
 
 
 								<div class="form-group has-feedback">
 									<label class="control-label">출발지</label>
 									<div>
 										<label class="radio-inline">
-											<input type="radio" name="rating" value="terrible" data-bv-field="rating">익산터미널
+											<input type="radio" name="depart" value="terminal" data-bv-field="rating">익산터미널
 										</label>
 										<label class="radio-inline">
-											<input type="radio" name="rating" value="watchable" data-bv-field="rating">익산역
+											<input type="radio" name="depart" value="station" data-bv-field="rating">익산역
 										</label>
 										<label class="radio-inline">
-											<input type="radio" name="rating" value="best" data-bv-field="rating"><i class="form-control-feedback" data-bv-icon-for="rating" style="display: none;"></i>익산터미널
+											<input type="radio" name="depart" value="wkuniv" data-bv-field="rating"><i class="form-control-feedback" data-bv-icon-for="rating" style="display: none;"></i>원광대
 										</label>
 									</div>
 								<small class="help-block" data-bv-validator="notEmpty" data-bv-for="rating" data-bv-result="NOT_VALIDATED" style="display: none;">The starting point is required</small>
 								</div>
 
 								<div class="form-group has-feedback">
-									<label class="control-label">도착지</label><!--출발지와 네임이 같으면 출발지와 한묶음 라디오버튼 되버림-->
+									<label class="control-label">도착지</label><!--depart/arrival differentiate-->
 									<div>
 										<label class="radio-inline">
-											<input type="radio" name="rating2" value="terrible" data-bv-field="rating">익산터미널
+											<input type="radio" name="arrival" value="terminal" data-bv-field="rating">익산터미널
 										</label>
 										<label class="radio-inline">
-											<input type="radio" name="rating2" value="watchable" data-bv-field="rating">익산역
+											<input type="radio" name="arrival" value="station" data-bv-field="rating">익산역
 										</label>
 										<label class="radio-inline">
-											<input type="radio" name="rating2" value="best" data-bv-field="rating"><i class="form-control-feedback" data-bv-icon-for="rating" style="display: none;"></i>익산터미널
+											<input type="radio" name="arrival" value="wkuniv" data-bv-field="rating"><i class="form-control-feedback" data-bv-icon-for="rating" style="display: none;"></i>원광대
 										</label>
 									</div>
 								<small class="help-block" data-bv-validator="notEmpty" data-bv-for="rating" data-bv-result="NOT_VALIDATED" style="display: none;">The arriving point is required</small>
@@ -109,7 +126,7 @@
 										<input type="checkbox" name="acceptTerms" data-bv-field="acceptTerms"><i class="form-control-feedback fa fa-check" data-bv-icon-for="acceptTerms" style="top: 0px; display: block;"></i> Accept the terms and policies
 									</div>
 								</div>
-								<button type="submit" class="btn btn-default">Validate</button>
+								<button type="submit" class="btn btn-default">SEND</button>
 							</form>
 						</div><!--blog body-->
 
