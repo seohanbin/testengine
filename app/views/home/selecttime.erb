@@ -23,33 +23,39 @@
                             <div class="blog-body">
 								<form class="form-inline" role="form" method="post" action="/home/result/">
 
+								  <input type="hidden" name="nickname" value="<%=@nickname %>">
+								  <input type="hidden" name="numofperson" value="<%=@numofperson %>">
+								  <input type="hidden" name="exactlocation" value="<%=@exactlocation %>">
+								  <input type="hidden" name="depart" value="<%=@depart %>">
+								  <input type="hidden" name="arrival" value="<%=@arrival %>">
+
 								  <div class="form-group" for="exampleInputPassword2">
-                                      <select class="form-control input-lg" id="simpleInput">
-      									<option>시간</option>
-                                        <option>02</option>
-                                        <option>03</option>
-  										<option>04</option>
-                                        <option>05</option>
-                                        <option>06</option>
-                                        <option>07</option>
-                                        <option>08</option>
-                                        <option>09</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                        <option>24</option>
-                                        <option>25</option>
+                                      <select class="form-control input-lg" id="simpleInput" name="dephour">
+											<option value="2">02</option>
+											<option value="3">03</option>
+											<option value="4">04</option>
+											<option value="5">05</option>
+											<option value="6">06</option>
+											<option value="7">07</option>
+											<option value="8">08</option>
+											<option value="9">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+											<option value="25">25</option>
+											<option value="26">26</option>
       								</select>
 								  </div>
 
@@ -58,22 +64,22 @@
 								    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
 								  </div> -->
                                   <div class="form-group">
-  									<select class="form-control">
-  										<option>분</option>
-  										<option>: 00</option>
-                                        <option>: 10</option>
-                                        <option>: 20</option>
-                                        <option>: 30</option>
-                                        <option>: 40</option>
-                                        <option>: 50</option>
+  									<select class="form-control" name="depminute">
+  										<option value="x">분</option>
+  										<option value="0">00</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
   									</select>
   								</div>
                                   <div class="form-group no-margin">
-  									<select class="form-control input-sm">
+  									<select class="form-control input-sm" name="waitingminute">
   										<option>검색범위옵션</option>
-                                        <option>+ 00</option>
-                                        <option>+ 10</option>
-                                        <option>+ 20</option>
+                                        <option value="0">+ 00</option>
+                                        <option value="10">+ 10</option>
+                                        <option value="20">+ 20</option>
   									</select>
   								</div>
                                 <br><br>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departing: MyString
+  arriving: MyString
+  time: 1
+
+two:
+  departing: MyString
+  arriving: MyString
+  time: 1
