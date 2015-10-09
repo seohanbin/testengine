@@ -47,6 +47,7 @@ class HomeController < ApplicationController
 
 
       #@car = Person.find(:all, :departing => @depart, :arriving => @arrival, :departing_time => )
+      Pool.find_by(id: session[:current_user_id])
     #   if Pool.find( :departing => @depart, :arriving => @arrival, :departing_time => @modified_time).present?
     #         @car = Pool.find(:all, :departing => @depart, :arriving => @arrival, :departing_time => @modified_time)
     #   else
